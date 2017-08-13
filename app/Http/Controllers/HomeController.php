@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Services\MonthService;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $month;
+
+    public function __construct(MonthService $month)
     {
-        $this->middleware('auth');
+        $this->month = $month;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
+        return view('timesheet.home')->with('month', $this->month);
+    }
+
+    public function store(Request $request)
+    {
+        // return $request->all();
+        return view('timesheet.pdf')->with('month', $this->month);
     }
 }
