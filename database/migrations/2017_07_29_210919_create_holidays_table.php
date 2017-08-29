@@ -16,6 +16,8 @@ class CreateHolidaysTable extends Migration
         Schema::create('holidays', function (Blueprint $table) {
             $table->increments('id');
             $table->datetime('date');
+            $table->boolean('am')->nullable();
+            $table->boolean('pm')->nullable();
             $table->timestamps();
         });
     }
