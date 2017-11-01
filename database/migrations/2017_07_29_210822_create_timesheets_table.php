@@ -16,7 +16,7 @@ class CreateTimesheetsTable extends Migration
         Schema::create('timesheets', function (Blueprint $table) {
             $table->increments('id');
             $table->datetime('end_date')->index();
-            $table->json('work_time')->nullable();
+            $table->text('work_time')->nullable();
             $table->timestamps();
         });
     }
