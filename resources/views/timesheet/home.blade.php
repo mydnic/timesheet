@@ -29,7 +29,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th class="row">Stepstone<br>(am / pm)</th>
+                                    <th class="row">{{ env('CLIENT_NAME') }}<br>(am / pm)</th>
                                     @foreach ($month->days() as $day)
                                         <th class="text-center">
                                             <div>
