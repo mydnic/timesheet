@@ -95,8 +95,17 @@
                     </table>
                     <hr>
                     <div class="text-centered">
-                        <h3>Total : {{ (count(request()->pm) + count(request()->am)) / 2 }}</h3>
+                        <h3>Total : {{ (count(request()->pm) + count(request()->am)) / 2 }} jours</h3>
+                        <h3>{{ ((count(request()->pm) + count(request()->am)) / 2) * 8 }} heures</h3>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Signature Consultant:
+                </div>
+                <div class="col-md-6">
+                    Signature Client:
                 </div>
             </div>
         </div>
