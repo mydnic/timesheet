@@ -35,12 +35,12 @@
                                             <div>
                                                 <input type="checkbox"
                                                     name="am[{{ $day->format('Y-m-d') }}]"
-                                                    {{ ($day->isWeekend() or $holidays->where('date', $day)->first()['am']) ? '' : 'checked' }}>
+                                                    {{ ($day->isWeekend() or ($holidays->where('date', $day)->first() and $holidays->where('date', $day)->first()['am'])) ? '' : 'checked' }}>
                                             </div>
                                             <div>
                                                 <input type="checkbox"
                                                     name="pm[{{ $day->format('Y-m-d') }}]"
-                                                    {{ ($day->isWeekend() or $holidays->where('date', $day)->first()['pm']) ? '' : 'checked' }}>
+                                                    {{ ($day->isWeekend() or ($holidays->where('date', $day)->first() and $holidays->where('date', $day)->first()['pm'])) ? '' : 'checked' }}>
                                             </div>
                                         </th>
                                     @endforeach
