@@ -75,7 +75,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th class="row">{{ env('CLIENT_NAME') }}<br>(am / pm)</th>
+                                <th class="row">Jours de travail<br>(am / pm)</th>
                                 @foreach ($month->days() as $day)
                                     <th class="text-center">
                                         <div>
@@ -87,6 +87,40 @@
                                             <input type="checkbox"
                                                 name="date[{{ $day->format('Y-m-d') }}][pm]"
                                                 {{ (array_key_exists($day->format('Y-m-d'), request()->pm)) ? 'checked' : '' }}>
+                                        </div>
+                                    </th>
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <th class="row">Congés<br>(am / pm)</th>
+                                @foreach ($month->days() as $day)
+                                    <th class="text-center">
+                                        <div>
+                                            <input type="checkbox"
+                                                name="date[{{ $day->format('Y-m-d') }}][holiday_am]"
+                                                {{ (array_key_exists($day->format('Y-m-d'), request()->holiday_am)) ? 'checked' : '' }}>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox"
+                                                name="date[{{ $day->format('Y-m-d') }}][holiday_pm]"
+                                                {{ (array_key_exists($day->format('Y-m-d'), request()->holiday_pm)) ? 'checked' : '' }}>
+                                        </div>
+                                    </th>
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <th class="row">Maladie<br>(am / pm)</th>
+                                @foreach ($month->days() as $day)
+                                    <th class="text-center">
+                                        <div>
+                                            <input type="checkbox"
+                                                name="date[{{ $day->format('Y-m-d') }}][sickday_am]"
+                                                {{ (array_key_exists($day->format('Y-m-d'), request()->sickday_am)) ? 'checked' : '' }}>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox"
+                                                name="date[{{ $day->format('Y-m-d') }}][sickday_pm]"
+                                                {{ (array_key_exists($day->format('Y-m-d'), request()->sickday_pm)) ? 'checked' : '' }}>
                                         </div>
                                     </th>
                                 @endforeach
