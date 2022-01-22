@@ -26,6 +26,7 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
+        return $request->all();
         return view('timesheet.pdf')->with('month', $this->month);
     }
 }
