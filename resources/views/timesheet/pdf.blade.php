@@ -98,12 +98,12 @@
                                         <div>
                                             <input type="checkbox"
                                                 name="date[{{ $day->format('Y-m-d') }}][holiday_am]"
-                                                {{ (array_key_exists($day->format('Y-m-d'), request()->holiday_am)) ? 'checked' : '' }}>
+                                                {{ request()->has('holiday_am') && (array_key_exists($day->format('Y-m-d'), request()->holiday_am)) ? 'checked' : '' }}>
                                         </div>
                                         <div>
                                             <input type="checkbox"
                                                 name="date[{{ $day->format('Y-m-d') }}][holiday_pm]"
-                                                {{ (array_key_exists($day->format('Y-m-d'), request()->holiday_pm)) ? 'checked' : '' }}>
+                                                {{ request()->has('holiday_pm') && (array_key_exists($day->format('Y-m-d'), request()->holiday_pm)) ? 'checked' : '' }}>
                                         </div>
                                     </th>
                                 @endforeach
@@ -115,12 +115,12 @@
                                         <div>
                                             <input type="checkbox"
                                                 name="date[{{ $day->format('Y-m-d') }}][sickday_am]"
-                                                {{ (array_key_exists($day->format('Y-m-d'), request()->sickday_am)) ? 'checked' : '' }}>
+                                                {{ request()->has('sickday_am') && (array_key_exists($day->format('Y-m-d'), request()->sickday_am)) ? 'checked' : '' }}>
                                         </div>
                                         <div>
                                             <input type="checkbox"
                                                 name="date[{{ $day->format('Y-m-d') }}][sickday_pm]"
-                                                {{ (array_key_exists($day->format('Y-m-d'), request()->sickday_pm)) ? 'checked' : '' }}>
+                                                {{ request()->has('sickday_pm') && (array_key_exists($day->format('Y-m-d'), request()->sickday_pm)) ? 'checked' : '' }}>
                                         </div>
                                     </th>
                                 @endforeach
