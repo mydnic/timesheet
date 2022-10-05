@@ -6,7 +6,7 @@
         <div class="col-md-12">
             {!! Form::open(['route' => 'timesheet.store']) !!}
                 <div class="panel panel-success">
-                    <div class="panel-heading"><strong>Timesheet for {{ date('F Y') }}</strong></div>
+                    <div class="panel-heading"><strong>Timesheet for {{ $month->format('F Y') }}</strong></div>
 
                     <div class="panel-body">
                         <table class="table table-bordered table-condensed">
