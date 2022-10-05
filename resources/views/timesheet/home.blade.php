@@ -5,6 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             {!! Form::open(['route' => 'timesheet.store']) !!}
+            @if(request()->has('month'))
+            <input type="hidden" name="month" value="{{request('month')}}" />
+            @endif
                 <div class="panel panel-success">
                     <div class="panel-heading"><strong>Timesheet for {{ $month->format('F Y') }}</strong></div>
 
