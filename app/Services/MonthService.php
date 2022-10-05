@@ -8,8 +8,14 @@ class MonthService extends Carbon
 {
     public function days()
     {
+        if (request()->has('month')) {
+            $start = self::now()->month(request('month'))->startOfMonth();
+        } else {
+            $start = self::now()->startOfMonth();
+        }
+        
         $days = collect();
-        $start = self::now()->startOfMonth();
+        
         $end = $start->copy()->endOfMonth();
         while ($start->lte($end)) {
             $days->push($start->copy());
