@@ -4,7 +4,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            {!! Form::open(['route' => 'timesheet.store']) !!}
+            <form action="{{route('timesheet.store')}}" method="post">
+                @csrf
             @if(request()->has('month'))
             <input type="hidden" name="month" value="{{request('month')}}" />
             @endif
@@ -82,10 +83,12 @@
                         </table>
                     </div>
                     <div class="panel-footer text-right">
-                        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                        <button type="submit" class="btn btn-primary">
+                            Save
+                        </button>
                     </div>
                 </div>
-            {!! Form::close() !!}
+            </form>
         </div>
     </div>
 </div>
